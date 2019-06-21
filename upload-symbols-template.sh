@@ -13,9 +13,4 @@ ARCHIVE=$1
 UPLOADSCRIPT="...../Pods/Fabric/upload-symbols" # Path to Fabric upload script
 GOOGLECONFIG="...../GoogleService-Info.plist"   # Path to Google services info
 
-if [ -d $ARCHIVE ]; then
-    find "$ARCHIVE/dSYMs" -name "*.dSYM" | xargs -I \{\} $UPLOADSCRIPT -gsp $GOOGLECONFIG -p ios \{\}
-    echo "Upload complete!"
-else
-    echo "Archive does not exist!"
-fi
+find "$ARCHIVE/dSYMs" -name "*.dSYM" | xargs -I \{\} $UPLOADSCRIPT -gsp $GOOGLECONFIG -p ios \{\}
